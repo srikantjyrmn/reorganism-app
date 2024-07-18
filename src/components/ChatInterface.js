@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { UserIcon, BotIcon, ToolIcon } from './MessageIcons';
-import { useAgents } from '../AgentContext';
+// import { useAgents } from '../AgentContext';
 
 function ChatInterface() {
   const [messages, setMessages] = useState([]);

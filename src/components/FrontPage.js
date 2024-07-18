@@ -30,9 +30,6 @@ function FrontPage() {
           Send
         </div>
       </div>
-
-
-
     </>
     
   );
