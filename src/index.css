@@ -29,6 +29,7 @@ body {
   animation: fall linear infinite;
   color: #00ff00;
   opacity: 0.8;
+  font-family: 'Roboto Mono', monospace;
 }
 
 @keyframes fall {

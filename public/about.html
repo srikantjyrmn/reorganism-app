@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Reorganism.in - AI Swarm Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Roboto Mono', monospace;
+            color: #0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #matrix-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        h1,
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #0ff;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #0f0;
+            text-decoration: none;
+            border: 1px solid #0f0;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #0f0;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="matrix-background"></canvas>
+    <div class="container">
+        <h1>About Reorganism.in</h1>
+        <p>Welcome to the forefront of AI-driven societal transformation. At <span
+                class="highlight">Reorganism.in</span>, we're not just envisioning the future – we're actively
+            constructing it through the power of AI swarms.</p>
+
+        <h2>Our Mission</h2>
+        <p>Reorganism.in is dedicated to harnessing the collective intelligence of AI swarms to reorganize and elevate
+            human life to unprecedented levels of efficiency, creativity, and fulfillment. We believe that the next
+            great leap in human progress will be orchestrated not by individual AIs, but by vast, interconnected
+            networks of specialized AI agents working in harmony.</p>
+
+        <h2>The Power of AI Swarms</h2>
+        <p>Our core technology revolves around creating and deploying swarms of AI agents, each specialized in specific
+            tasks but capable of collaborating to solve complex, multifaceted challenges. These swarms can adapt, learn,
+            and evolve, tackling problems with a level of nuance and comprehensiveness that single-AI systems cannot
+            match.</p>
+
+        <h2>Reorganizing Human Life</h2>
+        <p>We're not just optimizing existing systems; we're reimagining the very fabric of human society. Our AI swarms
+            are designed to:</p>
+        <ul>
+            <li>Revolutionize urban planning and infrastructure</li>
+            <li>Transform education into a personalized, lifelong journey</li>
+            <li>Reinvent healthcare with predictive and preventative approaches</li>
+            <li>Optimize resource allocation on a global scale</li>
+            <li>Enhance human creativity by automating mundane tasks</li>
+        </ul>
+
+        <h2>Our Vision</h2>
+        <p>We envision a world where AI swarms seamlessly integrate into every aspect of human life, not as a
+            replacement for human ingenuity, but as a catalyst for it. By offloading cognitive burdens and optimizing
+            our environments, we aim to free humanity to explore the heights of its potential.</p>
+
+        <h2>Join the Revolution</h2>
+        <p>At Reorganism.in, we're not just building AI – we're architecting the next chapter of human civilization.
+            Join us as we embark on this extraordinary journey to reorganize, reinvigorate, and reimagine what it means
+            to be human in the age of AI.</p>
+
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrix-background');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+        const fontSize = 14;
+        let columns, drops;
+
+        function setupMatrix() {
+            columns = Math.floor(canvas.width / fontSize);
+            drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * canvas.height;
+            }
+        }
+
+        setupMatrix();
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        function animate() {
+            drawMatrix();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            setupMatrix();
+        });
+    </script>
+</body>
+
+</html>

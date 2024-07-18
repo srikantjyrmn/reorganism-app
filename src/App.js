@@ -15,7 +15,7 @@ import { initializeApp } from 'firebase/app';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [matrixSpeed, setMatrixSpeed] = useState(1);
+  const [matrixSpeed, setMatrixSpeed] = useState(2);
 
   
   useEffect(() => {
@@ -30,7 +30,7 @@ function App() {
       matrixBg.innerHTML = ''; // Clear existing content
 
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+{}[]|;:,.<>?';
-      const columnsCount = Math.floor(window.innerWidth / 20);
+      const columnsCount = Math.floor(window.innerWidth / 10);
 
       for (let i = 0; i < columnsCount; i++) {
         const column = document.createElement('div');

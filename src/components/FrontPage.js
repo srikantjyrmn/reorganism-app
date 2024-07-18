@@ -8,19 +8,17 @@ function FrontPage() {
         <h1 id="logo">reorganism.in</h1>
 
         <nav>
-          <Link to="/about">About</Link> <a href="https://reorganism.in">Blog</a> <Link to="/coming-soon">Coming Soon</Link>
+          <a href="/about.html">About</a>
+          <a href="/about.html">Blog</a>
+          <Link to="/coming-soon">Coming Soon</Link>
         </nav>
-
-        <div id="chat-box">
-          Send Message
-        </div>
       </div>
-      
-  <div id="chat-messages"></div>
-  <div id="chat-input-area">
-    <input type="text" id="chat-window-input" placeholder="Type a message..." />
-    <button id="chat-window-send">Send</button>
-  </div>
+
+      <div id="chat-messages"></div>
+      <div id="chat-input-area">
+        <input type="text" id="chat-window-input" placeholder="Talk to our Agents." />
+        <button id="chat-window-send">Send</button>
+      </div>
 
       <div id="chat-window">
         <div id="chat-messages">
@@ -31,7 +29,7 @@ function FrontPage() {
         </div>
       </div>
     </>
-    
+
   );
 }
 
