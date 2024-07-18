@@ -8,7 +8,7 @@ import ToolsPage from './components/ToolsPage';
 import AgentsPage from './components/AgentsPage';
 import ConversationHistory from './components/ConversationHistory';
 import { AgentProvider } from './AgentContext';
-import { firebaseConfig } from './firebase-config';
+import firebaseConfig from './firebase-config';
 import { initializeFirebase } from './firebaseFunctions';
 import { initializeApp } from 'firebase/app';
 
