@@ -15,6 +15,12 @@ function FrontPage() {
           Send Message
         </div>
       </div>
+      
+  <div id="chat-messages"></div>
+  <div id="chat-input-area">
+    <input type="text" id="chat-window-input" placeholder="Type a message..." />
+    <button id="chat-window-send">Send</button>
+  </div>
 
       <div id="chat-window">
         <div id="chat-messages">
@@ -24,7 +30,11 @@ function FrontPage() {
           Send
         </div>
       </div>
+
+
+
     </>
+    
   );
 }
 

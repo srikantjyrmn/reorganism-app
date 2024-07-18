@@ -10,12 +10,19 @@ import ConversationHistory from './components/ConversationHistory';
 import { AgentProvider } from './AgentContext';
 import { firebaseConfig } from './firebase-config';
 import { initializeFirebase } from './firebaseFunctions';
+import { initializeApp } from 'firebase/app';
+
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [matrixSpeed, setMatrixSpeed] = useState(1);
 
+  
   useEffect(() => {
+    const app = initializeApp(firebaseConfig);
+    console.log('Firebase initialized:', app);
+    initializeFirebase(firebaseConfig);
+    
     const createMatrixBackground = () => {
       const matrixBg = document.getElementById('matrix-bg');
       if (!matrixBg) return;
@@ -67,9 +74,9 @@ function App() {
       <Router>
         <div className="flex h-screen relative z-10">
           <div id="matrix-bg" className="fixed inset-0 z-0 pointer-events-none"></div>
-          <Sidebar 
-            isOpen={sidebarOpen} 
-            toggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
+          <Sidebar
+            isOpen={sidebarOpen}
+            toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
             matrixSpeed={matrixSpeed}
             onSpeedChange={handleSpeedChange}
           />
@@ -83,8 +90,6 @@ function App() {
                   <Route path="/tools" element={<ToolsPage />} />
                   <Route path="/agents" element={<AgentsPage />} />
                   <Route path="/history" element={<ConversationHistory />} />
-                  <Route path="/about" element={<h1>About Page</h1>} />
-                  <Route path="/coming-soon" element={<h1>Coming Soon Page</h1>} />
                 </Routes>
               </div>
             </main>

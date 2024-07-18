@@ -4,23 +4,12 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #000;
   color: #33ff33;
   overflow: hidden;
-},
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Roboto Mono', monospace;
-  overflow: hidden;
-  background-color: #000;
-  color: #0f0;
 }
 
 .matrix-bg {
@@ -124,6 +113,21 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
+
+#chat-window {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-direction: column;
+  font-family: 'Roboto Mono', monospace;
+}
 
 #matrix-background {
   position: fixed;
@@ -285,20 +289,7 @@ nav a:hover {
   box-shadow: 0 0 10px #0f0;
 }
 
-#chat-window {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  height: 400px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 2px solid #0f0;
-  border-radius: 10px;
-  overflow: hidden;
-  flex-direction: column;
-  font-family: 'Roboto Mono', monospace;
-}
+
 
 #chat-messages {
   flex-grow: 1;
@@ -309,8 +300,9 @@ nav a:hover {
 
 #chat-input-area {
   display: flex;
+  background-color: #0f0;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(180, 33, 33);
 }
 
 #chat-input-area input {
